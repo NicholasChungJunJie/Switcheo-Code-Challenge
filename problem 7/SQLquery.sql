@@ -10,7 +10,7 @@ value_of_each_coin_for_each_address AS (
                                                     WHEN b.denom = 'swth' THEN b.amount*0.00000005
                                                     WHEN b.denom = 'tmz' THEN b.amount*0.003
                                                     END AS val
-    FROM balance_of_each_coin_for_each_address;
+    FROM balance_of_each_coin_for_each_address b;
 ),
 total_balance_for_each_address(
     SELECT v.address AS address, SUM(v.val) AS total_balance
