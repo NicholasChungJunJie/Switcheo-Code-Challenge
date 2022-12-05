@@ -18,9 +18,9 @@ total_balance_for_each_address(
     GROUP BY v.address
 )
 
-(SELECT DISTINCT t.address
-FROM total_balance_for_each_address
-WHERE t.total_balance >= 500)
+(SELECT DISTINCT tb.address
+FROM total_balance_for_each_address tb
+WHERE tb.total_balance >= 500)
 
 INTERSECT
 
