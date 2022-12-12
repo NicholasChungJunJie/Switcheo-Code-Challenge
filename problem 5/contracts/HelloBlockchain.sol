@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.25 <0.9.0;
+import "../../node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 contract HelloBlockchain {
     enum StateType { Request, Respond }
@@ -12,27 +13,25 @@ contract HelloBlockchain {
     string public ResponseMessage;
 
     constructor(string memory message) {
-        // Requestor = msg.sender;
-        // RequestMessage = message;
-        // State = StateType.Request;
+        Requestor = msg.sender;
+        RequestMessage = message;
+        State = StateType.Request;
         
     }
     struct ADD {
         address token;
         uint256 balance;
     }
-    
-    
 
-
-    function getBalances (address[] memory tokens_add) public view returns (ADD[] memory){
-    
-        ADD[] memory balance = new ADD[](tokens_add.length);
-        for(uint256 i = 0; i<tokens_add.length; i++) {
-            // TO DO
-            balance[i].token = tokens_add[i];
-            balance[i].balance = tokens_add[i].balance;
+    function getBalances (address contractAddress ,address[] memory tokensAddress) public view returns (ADD[] memory){
+        
+        ADD[] memory balance = new ADD[](tokensAddress.length);
+        for(uint256 i = 0; i<tokensAddress.length; i++) {
+            uint256 tempBalance= IERC20(contractAddress).balanceOf(tokensAddress[i]);
+            balance[i].balance = tempBalance;
+            balance[i].token = tokensAddress[i];
         }
+
         return balance;
     }
    

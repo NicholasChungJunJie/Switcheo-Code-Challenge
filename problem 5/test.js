@@ -11,6 +11,7 @@ const TOKENS = [    // token contract addresses
 ];
 
 // you can use your own RPC provider url (no need to deploy to mainnet)
+// RPC url : HTTP://127.0.0.1:7545
 const provider = ethers.providers.getDefaultProvider();
 
 const test = async () => {
