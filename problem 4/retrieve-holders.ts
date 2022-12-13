@@ -6,7 +6,7 @@ const provider = new ethers.providers.EtherscanProvider();
 async function get_amount ( address:string ) {
     try{
         const amount = await provider.getBalance(address);
-        console.log(address + " " + ethers.utils.formatEther(BigNumber.from(amount)));
+        console.log(address + " " + ethers.utils.formatEther(amount)); //convert wei to ether
     } catch (e) {
         console.log(e);
     }
