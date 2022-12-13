@@ -25,9 +25,9 @@ contract HelloBlockchain {
 
     function getBalances (address contractAddress ,address[] memory tokensAddress) public view returns (ADD[] memory){
         
-        ADD[] memory balance = new ADD[](tokensAddress.length);
+        ADD[] memory balance = new ADD[](tokensAddress.length); // array of struct
         for(uint256 i = 0; i<tokensAddress.length; i++) {
-            uint256 tempBalance= IERC20(contractAddress).balanceOf(tokensAddress[i]);
+            uint256 tempBalance= IERC20(contractAddress).balanceOf(tokensAddress[i]); // get token blance of wallet from contract address
             balance[i].balance = tempBalance;
             balance[i].token = tokensAddress[i];
         }
