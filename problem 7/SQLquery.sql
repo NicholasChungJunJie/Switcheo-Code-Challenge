@@ -15,7 +15,7 @@ value_of_each_coin_for_each_address AS (
                                                     WHEN b.denom = 'usdc' THEN b.amount*0.000001
                                                     WHEN b.denom = 'swth' THEN b.amount*0.00000005
                                                     WHEN b.denom = 'tmz' THEN b.amount*0.003
-                                                    END AS val
+                                                    END AS val -- account for other denoms using ELSE and setting them as 0
     FROM balance_of_each_coin_for_each_address b;
 ),
 ```
