@@ -17,6 +17,13 @@ var sum_to_n_b = function(n) {
     return sum;
 };
 
+var recurse = function (sum , n) {
+    if( n == 0) {
+        return sum;
+    }
+    return recurse(sum + n, n-1);
+}
+
 var sum_to_n_c = function(n) {
     // your code here
 
