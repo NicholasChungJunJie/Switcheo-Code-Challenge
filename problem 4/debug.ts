@@ -5,7 +5,7 @@ import { AbiCoder } from "@ethersproject/abi";
 import { BigNumber, ethers, providers, Signer } from "ethers";
 
 // ethers.getDefaultProvider("0xc0ecb8499d8da2771abcbf4091db7f65158f1468");
-const provider =  ethers.getDefaultProvider();
+const provider =  ethers.getDefaultProvider(); // use BSC provider instead (find on google)
 // console.log(provider.getCode("0xc0ecb8499d8da2771abcbf4091db7f65158f1468"));
 const abi = [
     // Read-Only Functions
